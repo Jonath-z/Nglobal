@@ -1,20 +1,26 @@
 package com.news.nglobal.network
 
-import retrofit2.Retrofit
-import retrofit2.converter.scalars.ScalarsConverterFactory
-import retrofit2.http.GET
+import okhttp3.*
+import java.io.IOException
 
 class ApiServices {
-    private val apiUrl = "https://newsdata.io/api/1/news?apikey=pub_15376dcf734b967c316e646bbd42efae591eb"
+    private val client = OkHttpClient()
 
-    private val retrofit = Retrofit.Builder()
-        .addConverterFactory(ScalarsConverterFactory.create())
-        .baseUrl(apiUrl)
-        .build()
+    var failedToLoadNews: Boolean = false;
 
-    interface NewsApiServices {
-        @GET("&q={type}&language=en")
-        fun getNews(): String
+    fun fetchNews(url: String){
+        val request = Request.Builder().url(url).build()
+
+        client.newCall(request).enqueue(object: Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                failedToLoadNews = true;
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                failedToLoadNews = false
+                println("RESPONSE \n")
+                println(response.body()?.string())
+            }
+        })
     }
-
 }
