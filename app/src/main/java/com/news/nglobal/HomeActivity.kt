@@ -10,12 +10,8 @@ class HomeActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState, persistentState)
         setContentView(R.layout.home_activity)
 
-        ApiServices().fetchNews("this should be a api url")
+        println("activity lunched")
 
-        if(ApiServices().failedToLoadNews){
-             // If it fails to load news
-        }else{
-            // update UI
-        }
+        ApiServices().fetchNews("sport")
     }
 }
