@@ -10,8 +10,8 @@ class HomeActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState, persistentState)
         setContentView(R.layout.home_activity)
 
-        println("activity lunched")
-
-        ApiServices().fetchNews("sport")
+//        println("activity lunched")
+//
+//        ApiServices().fetchNews("sport")
     }
 }

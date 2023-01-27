@@ -18,5 +18,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
+
+        println("activity lunched")
+
+        ApiServices().fetchNews("sport")
     }
 }

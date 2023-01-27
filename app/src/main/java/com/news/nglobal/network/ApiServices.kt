@@ -12,7 +12,9 @@ class ApiServices {
     private val client: OkHttpClient = OkHttpClient()
 
     fun fetchNews(theme: String) {
-        val request = Request.Builder().url(URL("$baseUrl?q=$theme&&apiKey=$apiKey")).build()
+        val request = Request.Builder().url(URL("$baseUrl?q=$theme&apiKey=$apiKey")).build()
+
+        Log.d("api error", request.toString())
 
         client.newCall(request).enqueue(object: Callback{
             override fun onFailure(call: Call, e: IOException) {
