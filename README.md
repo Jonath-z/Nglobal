@@ -15,6 +15,6 @@ https://user-images.githubusercontent.com/79799120/216826389-7682cdc4-b823-4998-
 
 ## Author
 
-- Jonathan Z. -- [witter](https://twitter.com/JonathanZihind4 ) -- [LinkedIn](https://www.linkedin.com/in/jonathan-z-0a40ab209/ )
+- Jonathan Z. -- [Twitter](https://twitter.com/JonathanZihind4 ) -- [LinkedIn](https://www.linkedin.com/in/jonathan-z-0a40ab209/ )
 
 
