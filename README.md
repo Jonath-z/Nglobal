@@ -1,6 +1,6 @@
 # Nglobal
 
-Native android application written in kotlin with 2000+ news from all over the world
+A native android application written in kotlin with 2000+ news from all over the world
 
 ## Video Demo
 
