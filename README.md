@@ -11,10 +11,10 @@ https://user-images.githubusercontent.com/79799120/216826389-7682cdc4-b823-4998-
 - Glide
 - GSON
 - Okttp
-- [https://newsapi.org](newsapi.org)
+- [newsapi.org](https://newsapi.org)
 
 ## Author
 
-- Jonathan Z. -- [https://twitter.com/JonathanZihind4](Twitter) -- [https://www.linkedin.com/in/jonathan-z-0a40ab209/](LinkedIn)
+- Jonathan Z. -- [witter](https://twitter.com/JonathanZihind4 ) -- [LinkedIn](https://www.linkedin.com/in/jonathan-z-0a40ab209/ )
 
 
