@@ -3,111 +3,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    tools:context=".HomeActivity"
+    android:background="@color/white"
+    tools:context=".NewsActivity"
     >
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="wrap_content"
-    tools:ignore="UselessParent">
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/discover_news"
-        android:textSize="32sp"
-        android:textColor="@color/white"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="20dp"
-        />
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layoutDirection="locale"
-        android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp"
-        android:layout_height="wrap_content">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sports"
-            android:textSize="16sp"
-            android:paddingHorizontal="14dp"
-            android:layout_marginStart="1dp"
-            android:paddingVertical="5dp"
-            android:background="@drawable/rounded_corner_view"
-            android:textColor="@color/white"
-            />
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="20dp"
+            android:text="@string/discover_news"
+            android:textColor="@color/black"
+            android:textSize="32sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <HorizontalScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:paddingHorizontal="14dp"
-            android:paddingVertical="5dp"
-            android:text="@string/politics"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="16sp" />
+            android:layoutDirection="locale">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:paddingHorizontal="14dp"
-            android:paddingVertical="5dp"
-            android:text="@string/business"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="16sp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:paddingHorizontal="14dp"
-            android:paddingVertical="5dp"
-            android:text="@string/health"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/sport_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/rounded_corner_view"
+                    android:clickable="true"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="5dp"
+                    android:text="@string/sports"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="@string/musics"
-            android:textSize="16sp"
-            android:paddingHorizontal="14dp"
-            android:paddingVertical="5dp"
-            android:textColor="@android:color/darker_gray"
-        />
+                <TextView
+                    android:id="@+id/politic_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:clickable="true"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="5dp"
+                    android:text="@string/politics"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="16sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cinema"
-            android:textSize="16sp"
-            android:paddingHorizontal="14dp"
-            android:paddingVertical="5dp"
-            android:layout_marginLeft="5dp"
-            android:textColor="@android:color/darker_gray"
-        />
+                <TextView
+                    android:id="@+id/business_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:clickable="true"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="5dp"
+                    android:text="@string/business"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="16sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sport"
-            android:textSize="16sp"
-            android:paddingHorizontal="14dp"
-            android:paddingVertical="5dp"
-            android:background="@color/blue"
-            android:layout_marginLeft="5dp"
-            android:textColor="@android:color/darker_gray"
-        />
+                <TextView
+                    android:id="@+id/health_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:clickable="true"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="5dp"
+                    android:text="@string/health"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/music_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:clickable="true"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="5dp"
+                    android:text="@string/musics"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/cinema_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginEnd="1dp"
+                    android:clickable="true"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="5dp"
+                    android:text="@string/cinema"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sport_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal" />
+
     </LinearLayout>
-    </HorizontalScrollView>
-</LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/load_news_progressBar"
+        android:layout_width="match_parent"
+        android:indeterminateTint="@color/blue"
+        android:indeterminateBehavior="cycle"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>
