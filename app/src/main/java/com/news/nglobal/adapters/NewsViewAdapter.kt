@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.news.nglobal.NewsActivity
 import com.news.nglobal.R
+import com.news.nglobal.interfaces.NewsClickListener
 import com.news.nglobal.models.NewsViewModel
 
 

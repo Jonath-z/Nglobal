@@ -1,6 +1,7 @@
 package com.news.nglobal
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,7 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.news.nglobal.adapters.NewsViewAdapter
+import com.news.nglobal.interfaces.NewsClickListener
 import com.news.nglobal.models.NewsApiResponseModel
+import com.news.nglobal.models.NewsViewModel
 import okhttp3.*
 import java.io.IOException
 import java.net.URL
@@ -31,7 +34,6 @@ class NewsActivity: AppCompatActivity() {
 
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-
         fun fetchNews(theme: String) {
             loadNewsProgressBar.visibility = View.VISIBLE
 
@@ -43,7 +45,6 @@ class NewsActivity: AppCompatActivity() {
 
                 override fun onResponse(call: Call, response: Response) {
                     val data = Gson().fromJson(response.body()?.string(), NewsApiResponseModel::class.java)
-
                     this@NewsActivity.runOnUiThread(java.lang.Runnable {
                     loadNewsProgressBar.visibility = View.GONE
                     val adapter = NewsViewAdapter(data.articles, this@NewsActivity)
@@ -109,6 +110,7 @@ class NewsActivity: AppCompatActivity() {
             updateActiveThemeBackground("Music")
         }
     }
+
 }
 
 
