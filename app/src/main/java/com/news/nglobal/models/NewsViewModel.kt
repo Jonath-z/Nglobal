@@ -3,7 +3,8 @@ package com.news.nglobal.models
 data class Source(
     val id: Any,
     val name: String
-)
+): java.io.Serializable
+
 
 data class NewsViewModel(
     val author: String,
@@ -14,4 +15,4 @@ data class NewsViewModel(
     val title: String,
     val url: String,
     val urlToImage: String
-)
+): java.io.Serializable

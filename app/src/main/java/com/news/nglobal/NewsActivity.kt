@@ -2,24 +2,26 @@ package com.news.nglobal
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.news.nglobal.adapters.NewsViewAdapter
-import com.news.nglobal.interfaces.NewsClickListener
+import com.news.nglobal.interfaces.OnNewsClickListener
 import com.news.nglobal.models.NewsApiResponseModel
 import com.news.nglobal.models.NewsViewModel
 import okhttp3.*
 import java.io.IOException
 import java.net.URL
 
-class NewsActivity: AppCompatActivity() {
+class NewsActivity: AppCompatActivity(){
     private val apiKey: String = "7aff92f70bff4da19772191bf3784ea6"
     private val baseUrl: String = "https://newsapi.org/v2/everything"
     private val client: OkHttpClient = OkHttpClient()
@@ -28,15 +30,19 @@ class NewsActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        // customize status bar background and text color
+        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        }
+
         val loadNewsProgressBar: ProgressBar = findViewById(R.id.load_news_progressBar)
-
         val recyclerView: RecyclerView = findViewById(R.id.sport_recyclerview)
-
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         fun fetchNews(theme: String) {
             loadNewsProgressBar.visibility = View.VISIBLE
-
             val request = Request.Builder().url(URL("$baseUrl?q=$theme&language=en&apiKey=$apiKey")).build()
             client.newCall(request).enqueue(object: Callback {
                 override fun onFailure(call: Call, e: IOException) {
@@ -48,6 +54,15 @@ class NewsActivity: AppCompatActivity() {
                     this@NewsActivity.runOnUiThread(java.lang.Runnable {
                     loadNewsProgressBar.visibility = View.GONE
                     val adapter = NewsViewAdapter(data.articles, this@NewsActivity)
+
+                    adapter.setOnNewsClickListener(object: NewsViewAdapter.OnNewsClickListener{
+                        override fun onNewsClick(news: NewsViewModel) {
+                            val intent = Intent(this@NewsActivity, ReadNewsActivity::class.java)
+                            intent.putExtra("news", news)
+                            startActivity(intent)
+                        }
+                    })
+
                     recyclerView.adapter = adapter
                     })
                 }
@@ -79,7 +94,6 @@ class NewsActivity: AppCompatActivity() {
             }
         }
 
-
         sportTV.setOnClickListener {
             fetchNews("sport")
             updateActiveThemeBackground("Sports")
@@ -110,7 +124,5 @@ class NewsActivity: AppCompatActivity() {
             updateActiveThemeBackground("Music")
         }
     }
-
 }
-
 
